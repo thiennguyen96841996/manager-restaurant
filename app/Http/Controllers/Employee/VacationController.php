@@ -8,6 +8,11 @@ use App\Http\Requests\VacationFormRequest;
 use App\Http\Requests\VacationUpdateRequest;
 use App\Repositories\Vacation\VacationRepositoryInterface;
 use Auth;
+use App\Events\Vacation;
+use App\Events\ReviewVacation;
+use App\Notification;
+use Carbon\Carbon;
+use App\User;
 
 class VacationController extends Controller
 {
@@ -63,7 +68,17 @@ class VacationController extends Controller
             'status' => config('app.waitting'),
             'user_id' => Auth::user()->id
         ];
-        $this->vacationRepository->create($data);
+        $save = $this->vacationRepository->create($data);
+        $admin = User::where('email', 'admin@gmail.com')->first();
+        event(new Vacation('vacation'));
+        $data_noti['from_user_id'] = User::findOrFail($data['user_id'])->id;
+        $data_noti['read'] = 0;
+        $data_noti['click'] = 0;
+        $data_noti['to_user_id'] = $admin->id;
+        $data_noti['type'] = 'Vacation';
+        $data_noti['type_id'] = $save->id;
+        $noti = Notification::create($data_noti);
+        event(new ReviewVacation($noti->id));
 
         return redirect()->route('vacation.create')->with('success', __('create_success'));
     }

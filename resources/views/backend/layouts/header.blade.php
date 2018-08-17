@@ -89,73 +89,27 @@
                     </li>
                 </ul>    
             </li>
+            @if (Auth::user()->role == config('app.manager'))
             <li class="notifications dropdown dropdown-animated scale-left">
-                <span class="counter">2</span>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="mdi mdi-bell-ring-outline"></i>
+                <span class="counter" id="noti-count"></span>
+                <a href="#" id="top-cart-trigger" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="mdi mdi-bell-ring-outline" id="top-cart-trigger"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-lg p-v-0">
+                <ul class="dropdown-menu dropdown-lg p-v-0 headerNotify_content" id="noti-list">
                     <li class="p-v-15 p-h-20 border bottom text-dark">
                         <h5 class="m-b-0">
                             <i class="mdi mdi-bell-ring-outline p-r-10"></i>
-                            <span>{{ __('notification') }}</span>
+                            <span> Notification </span>
                         </h5>
                     </li>
-                    <li>
-                        <ul class="list-media overflow-y-auto relative scrollable">
-                            <li class="list-item border bottom">
-                                @if (Auth::user()->role == config('app.manager'))
-                                <a href="{{ route('vacations.create') }}" class="media-hover p-15">
-                                    <div class="media-img">
-                                        <div class="icon-avatar bg-success">
-                                            <i class="ti-user"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <span class="title">
-                                            {{ __('vacation_notification') }}
-                                        </span>
-                                        <span class="sub-title"></span>
-                                    </div>
-                                </a>
-                                <a href="{{ route('overtimes.create') }}" class="media-hover p-15">
-                                    <div class="media-img">
-                                        <div class="icon-avatar bg-success">
-                                            <i class="ti-user"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <span class="title">
-                                            {{ __('overtime_notification') }}
-                                        </span>
-                                        <span class="sub-title"></span>
-                                    </div>
-                                </a>
-                                @else
-                                <a href="{{ route('notifications.show', Auth::user()->id) }}" class="media-hover p-15">
-                                    <div class="media-img">
-                                        <div class="icon-avatar bg-success">
-                                            <i class="ti-comments-smiley"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <span class="title">
-                                            {{ __('vacation_request') }}
-                                        </span>
-                                        <span class="sub-title"></span>
-                                    </div>
-                                </a>
-                                @endif
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="p-v-15 p-h-20 text-center">
+                    <li class="p-v-15 p-h-20 border bottom text-dark text-center">
                         <span>
-                            <a href="#" class="text-gray">{{ __('check_notification') }} <i class="ei-right-chevron p-l-5 font-size-10"></i></a>
+                            <a href="#" class="text-gray">Check all notifications <i class="ei-right-chevron p-l-5 font-size-10"></i></a>
                         </span>
                     </li>
                 </ul>
             </li>
+            @endif
             <li class="user-profile dropdown dropdown-animated scale-left">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img class="profile-img img-fluid" src="{{ asset(config('app.link_avatar') . Auth::user()->avatar) }}" alt=" ">

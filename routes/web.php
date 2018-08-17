@@ -23,6 +23,12 @@ Route::group(['prefix' => 'manager', 'namespace' => 'Manager', 'middleware' => '
     Route::get('salary/create/{id}', 'ManagerSalaryController@create')->name('salary.create');
     Route::resource('category', 'CategoryController', ['except' => ['edit', 'show', 'create']]);
     Route::resource('product', 'ProductController');
+    Route::post('notification/fetch_noti_count', 'NotificationsController@fetch_noti_count')
+        ->name('notification.fetch_noti_count');
+    Route::post('notification/fetch_noti_list', 'NotificationsController@fetch_noti_list')
+        ->name('notification.fetch_noti_list');
+    Route::post('notification/read', 'NotificationsController@read')
+        ->name('notification.read');
 });
 
 Route::group(['prefix' => 'employee', 'namespace' => 'Employee', 'middleware' => 'employee']
