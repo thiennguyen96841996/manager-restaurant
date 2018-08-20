@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Category;
+use App\Image;
 use Illuminate\Support\Str;
+use App\Http\Requests\ProductFormRequest;
 
 class ProductController extends Controller
 {
@@ -40,15 +42,29 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductFormRequest $request)
     {
         $product = new Product([
             'name' => $request->name,
             'price' => $request->price,
             'describe' => $request->describe,
+            'category_id' => $request->categories,
         ]);
+
         $product->save();
-        $product->categories()->sync($request->get('categories'));
+        if($request->hasFile('image')) {
+            foreach($request->image as $image) {
+                $filename = $image->getClientOriginalName();
+                $image->move(config('app.link_product'), $filename);
+ 
+                $image = new Image([
+                    'product_id' => $product->id,
+                    'name' => $filename,
+                ]);
+                
+                $image->save();
+            }
+        }
 
         return redirect()->route('product.index')->with('success', __('create_success'));
     }
@@ -61,7 +77,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('backend.products.show', compact('product'));
     }
 
     /**
@@ -74,9 +92,8 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        $selectedCategories = $product->categories->pluck('id')->toArray();
 
-        return view('backend.products.edit', compact('product', 'categories', 'selectedCategories'));
+        return view('backend.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -92,8 +109,8 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->describe = $request->describe;
+        $product->category_id = $request->categories;
         $product->save();
-        $product->categories()->sync($request->get('categories'));
 
         return redirect()->route('product.index')->with('success', __('update_success'));
 

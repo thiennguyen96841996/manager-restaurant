@@ -47,9 +47,9 @@
                                         <div class="p-h-10">
                                             <div class="form-group">
                                                 {{ Form::label(__('category'), null, ['class' => 'control-label']) }}
-                                                <select class="form-control" name="categories[]">
+                                                <select class="form-control" name="categories">
                                                     @foreach($categories as $value)
-                                                    <option value="{{ $value->id }}" @if(in_array($value->id, $selectedCategories)) selected="selected" @endif>{{ $value->name }}</option>
+                                                    <option value="{{ $value->id }}" @if($value->id == $product->category->id) selected="selected" @endif>{{ $value->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -83,7 +83,7 @@
                                         <div class="p-h-10">
                                             <div class="form-group">
                                                 {{ Form::label(__('describe'), null, ['class' => 'control-label']) }}
-                                                {{ Form::textarea('describe', $product->describe, ['class' => 'form-control', 'id' => 'summernote-standard']) }}
+                                                {{ Form::textarea('describe', $product->describe, ['class' => 'form-control']) }}
                                             </div>
                                         </div>
                                     </div>

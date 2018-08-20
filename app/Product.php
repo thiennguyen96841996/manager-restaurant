@@ -12,14 +12,21 @@ class Product extends Model
 	    'name',
 	    'price',
 	    'describe',
+        'category_id',
     ];
     protected $guarded = ['id'];
 
-    public function categories() {
-    	return $this->belongsToMany(Category::class)->withTimestamps();
+    public function category() {
+    	return $this->belongsTo(Category::class);
     }
 
     public function images() {
     	return $this->hasMany(Image::class);
+    }
+
+    public function getImage($id) {
+        $image = Image::where('product_id', $id)->first();
+
+        return $image;
     }
 }

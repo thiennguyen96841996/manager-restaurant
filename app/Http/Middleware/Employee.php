@@ -23,7 +23,7 @@ class Employee
             {
                 return $next($request);
             } else {
-                return redirect('/manager');
+                return redirect('/');
             }
         }
     }

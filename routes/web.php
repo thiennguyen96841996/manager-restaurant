@@ -22,7 +22,7 @@ Route::group(['prefix' => 'manager', 'namespace' => 'Manager', 'middleware' => '
     Route::resource('salary', 'ManagerSalaryController', ['except' => 'create', 'destroy']);
     Route::get('salary/create/{id}', 'ManagerSalaryController@create')->name('salary.create');
     Route::resource('category', 'CategoryController', ['except' => ['edit', 'show', 'create']]);
-    Route::resource('product', 'ProductController', ['except' => 'show']);
+    Route::resource('product', 'ProductController');
 });
 
 Route::group(['prefix' => 'employee', 'namespace' => 'Employee', 'middleware' => 'employee']
@@ -35,4 +35,6 @@ Route::group(['prefix' => 'employee', 'namespace' => 'Employee', 'middleware' =>
     Route::resource('notifications', 'NotificationController', ['except' => ['edit', 'store']]);
 });
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'PageController@index')->name('home');
+Route::get('/menu', 'MenuController@index')->name('menu');
+Route::get('/product/{id}', 'MenuController@show')->name('menu.product');
