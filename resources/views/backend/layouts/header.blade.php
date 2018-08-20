@@ -175,6 +175,14 @@
                         </ul>
                     </li>
                     <li role="separator" class="divider"></li>
+                    @if (Auth::user()->role == config('app.manager'))
+                    <li>
+                        <a href="{{ route('home') }}">
+                            <i class="ti-home p-r-10"></i>
+                            <span>{{ __('page') }}</span>
+                        </a>
+                    </li>
+                    @endif
                     <li>
                         <a href="#">
                             <i class="ti-settings p-r-10"></i>

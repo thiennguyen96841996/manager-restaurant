@@ -144,7 +144,7 @@
                         <div class="modal-footer no-border">
                             <div>
                                 {{ Form::button(__('cancel'), ['class' =>'btn btn-default', 'data-dismiss' => 'modal']) }}
-                                {{ Form::submit(__('create'), ['class' =>'btn btn-success']) }}
+                                {{ Form::submit(__('update'), ['class' =>'btn btn-success']) }}
                             </div>
                         </div> 
                     {!! Form::close() !!}

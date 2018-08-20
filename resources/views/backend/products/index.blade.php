@@ -36,6 +36,7 @@
                                     <th>{{ __('name') }}</th>
                                     <th>{{ __('describe') }}</th>
                                     <th>{{ __('price') }}</th>
+                                    <th>{{ __('category') }}</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -55,9 +56,10 @@
                                 @foreach($products as $value)
                                     <tr>
                                         <td>{{ $stt++ }}</td>
-                                        <td>{{ $value->name }}</td>
+                                        <td><a href="{{ route('product.show', $value->id) }}">{{ $value->name }}</a></td>
                                         <td>{!! str_limit($value->describe, 50) !!}</td>
                                         <td>{{ $value->price }} {{ __('$') }}</td>
+                                        <td>{{ $value->category->name }}</td>
                                         <td class="font-size-18 text-center">
                                             <a href="{{ route('product.edit', $value->id) }}" class="text-gray m-r-15"><i class="ti-pencil"></i></a>
                                             <a data-toggle="modal" data-target="#basic-modal" data-url="{{ route('product.destroy', $value->id) }}" class="text-gray m-r-15"><i class="ti-trash"></i></a>
