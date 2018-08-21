@@ -24,20 +24,13 @@
                     <div class="row m-v-30">
                         <div class="col-sm-3">
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                @foreach ($product->images as $image)
                                 <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" id="carousel"></li>
                                 </ol>
                                 <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="{{ asset('assets/demo-bower/assets/images/others/img-14.jpg') }}" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('assets/demo-bower/assets/images/others/img-15.jpg') }}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('assets/demo-bower/assets/images/others/img-16.jpg') }}" alt="Third slide">
+                                    <div class="carousel-item" id="carousel-1">
+                                        <img class="d-block w-100" src="{{ asset(config('app.link_product') . $image->name) }}" alt="First slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -46,6 +39,7 @@
                                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                     <span class="mdi mdi-chevron-right font-size-35" aria-hidden="true"></span>
                                 </a>
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-sm-4 text-center text-sm-left">
@@ -101,4 +95,11 @@
 {{ Html::script('assets/demo-bower/assets/vendor/datatables/media/js/jquery.dataTables.js') }}
 {{ Html::script('assets/demo-bower/assets/vendor/datatables/media/js/dataTables.bootstrap4.min.js') }}
 {{ Html::script('assets/demo-bower/assets/js/tables/data-table.js') }}
+<script>
+    $(function() {
+        console.log('abc');
+    $('#carousel').addClass('active');
+    $('#carousel-1').addClass('active');
+    });
+</script>
 @endsection

@@ -38,3 +38,4 @@ Route::group(['prefix' => 'employee', 'namespace' => 'Employee', 'middleware' =>
 Route::get('/', 'PageController@index')->name('home');
 Route::get('/menu', 'MenuController@index')->name('menu');
 Route::get('/product/{id}', 'MenuController@show')->name('menu.product');
+Route::post('comment/store', 'CommentController@store')->name('comment.add');
