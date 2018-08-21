@@ -40,7 +40,19 @@
                             <!--  -->
                             <div class="how8-parent">
                                 <div class="wrap-pic-w">
-                                    <img src="../images/blog-21.jpg" alt="IMG-BLOG">
+                                    <div class="wsize17 p-l-10 p-r-10 p-t-10 p-b-10 respon3">
+                                        <!-- Slide3 -->
+                                        <div class="wrap-slick5">
+                                            <div class="slick5">
+                                                @foreach($product->images as $image)
+                                                <div class="item-slick5 hsize8 respon5">
+                                                    <a class="dis-block bg-img1 size-full how-overlay1" href="../assets/images/products/{{ $image->name }}" data-lightbox="gallery"
+                                                    style="background-image: url('../assets/images/products/{{ $image->name }}')"></a>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="flex-w how8 p-b-9">
@@ -252,7 +264,7 @@
                                     <!-- comment-lv1 -->
                                     <div class="flex-w">
                                         <div class="how-avatar1 m-r-30 m-t-3">
-                                            <img src="images/avatar-05.jpg" alt="AVATAR">
+                                            <img src="../images/avatar-05.jpg" alt="AVATAR">
                                         </div>
 
                                         <div class="wsize19 w-full-sm respon6">
@@ -306,7 +318,8 @@
                                     Don't Forget Comment
                                 </h5>
 
-                                <form>
+                                {{ Form::open(['method' => 'POST', 'id' => 'comment_form', 'route' => 'comment.add']) }}
+                                        <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-4 p-b-30">
                                             <div class="size1 bor9">
