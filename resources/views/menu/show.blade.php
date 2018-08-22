@@ -58,17 +58,7 @@
                                 <div class="flex-w how8 p-b-9">
                                     <span class="s1-txt12 p-r-15">
                                         <i class="fa fa-comments cl1 m-r-5"></i>
-                                        03 Comment
-                                    </span>
-
-                                    <span class="s1-txt12 p-r-15">
-                                        <i class="fa fa-eye cl1 m-r-5"></i>
-                                        15 Viewer
-                                    </span>
-
-                                    <span class="s1-txt12">
-                                        <i class="fa fa-calendar cl1 m-r-5"></i>
-                                        Dec 16 ,2017
+                                        {{ $product->comments->count() }} Comments
                                     </span>
                                 </div>
                             </div>
@@ -82,233 +72,53 @@
                                     {{ $product->describe }}
                                 </p>
                             </div>
-                            
-                            <!--  -->
-                            <div class="flex-str flex-w bor11 m-b-65">
-                                <div class="bg-img1 size11 w-full-sm"
-                                style="background-image: url('../images/other-02.jpg');"></div>
-
-                                <div class="flex-col-m wsize18 p-t-25 p-b-25 p-l-30 p-r-30 w-full-sm">
-                                    <span class="m1-txt8 p-b-11">
-                                        Brenda Greene
-                                    </span>
-
-                                    <span class="s1-txt13 p-b-9">
-                                        “I Love This Food”
-                                    </span>
-
-                                    <p class="s1-txt3 p-b-20">
-                                        Mauris pellentesque lacus rutrum varius, lectus hendrerit lacus,pulvinar dui ante sit amet nibh. Mauris gravida nunc massa, pulvinar turpis porta cursus. Praesent vel lobortis magna.
-                                    </p>
-
-                                    <span class="fs-18 cl1 flex-w">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                </div>
-                            </div>
 
                             <!--  -->
                             <div class="bor2">
-                                <div class="flex-sb-m flex-w">
-                                    <div class="flex-w p-t-10 p-b-10 p-r-30">
-                                        <span class="s1-txt3 m-r-5">Tags: </span>
-                                        
-                                        <span class="flex-w m-r-5">
-                                            <a href="#" class="s1-txt3 hov-cl1 trans-04">
-                                                design
-                                            </a>
-                                            <span class="s1-txt3">,</span>
-                                        </span>
-                                        
-                                        <span class="flex-w m-r-5">
-                                            <a href="#" class="s1-txt3 hov-cl1 trans-04">
-                                                food
-                                            </a>
-                                            <span class="s1-txt3">,</span>
-                                        </span>
-
-                                        <span class="flex-w m-r-5">
-                                            <a href="#" class="s1-txt3 hov-cl1 trans-04">
-                                                chef
-                                            </a>
-                                        </span>
-                                    </div>
-
-                                    <div class="flex-w p-t-10 p-b-10">
-                                        <a href="#" class="flex-c-m how-social1 trans-04 m-r-10 m-b-5 m-t-5">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-
-                                        <a href="#" class="flex-c-m how-social1 trans-04 m-r-10 m-b-5 m-t-5">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-
-                                        <a href="#" class="flex-c-m how-social1 trans-04 m-r-10 m-b-5 m-t-5">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-
-                                        <a href="#" class="flex-c-m how-social1 trans-04 m-b-5 m-t-5">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </div>
-                                </div>
 
                                 <div class="p-t-15 p-b-30">
                                     <h5 class="m2-txt8 p-b-35">
-                                        Related Articles
+                                        Same Food
                                     </h5>
 
                                     <div class="row">
+                                        @foreach($sames as $value)
                                         <div class="col-sm-6 col-lg-4 p-b-30">
                                             <!-- item event -->
                                             <div class="item-event">
-                                                <a href="blog-detail.html" class="wrap-pic-w how-overlay2">
+                                                <a href="{{ route('menu.product', $value->id) }}" class="wrap-pic-w how-overlay2">
                                                     <img src="../images/blog-24.jpg" alt="IMG-BLOG">
                                                 </a>
 
                                                 <div class="p-t-20">
                                                     <h6 class="p-b-12">
-                                                        <a href="blog-detail.html" class="m2-txt9 hov-cl1 trans-04">
-                                                            Indignation and dislike me. 
+                                                        <a href="{{ route('menu.product', $value->id) }}" class="m2-txt9 hov-cl1 trans-04">
+                                                            {{ $value->name }}
                                                         </a>
                                                     </h6>
 
                                                     <div class="flex-sb-m flex-w">
                                                         <span class="s1-txt14 m-r-20">
                                                             <i class="fa fa-user-circle-o m-r-6"></i>
-                                                            by author
-                                                        </span>
-
-                                                        <span class="s1-txt2">
-                                                            <i class="fa fa-calendar m-r-6"></i>
-                                                            Dec 16, 2017
+                                                            {{ $value->describe }}
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>  
                                         </div>
-
-                                        <div class="col-sm-6 col-lg-4 p-b-30">
-                                            <!-- item event -->
-                                            <div class="item-event">
-                                                <a href="blog-detail.html" class="wrap-pic-w how-overlay2">
-                                                    <img src="../images/blog-25.jpg" alt="IMG-BLOG">
-                                                </a>
-
-                                                <div class="p-t-20">
-                                                    <h6 class="p-b-12">
-                                                        <a href="blog-detail.html" class="m2-txt9 hov-cl1 trans-04">
-                                                            Demoralized the charms.
-                                                        </a>
-                                                    </h6>
-
-                                                    <div class="flex-sb-m flex-w">
-                                                        <span class="s1-txt14 m-r-20">
-                                                            <i class="fa fa-user-circle-o m-r-6"></i>
-                                                            by author
-                                                        </span>
-
-                                                        <span class="s1-txt2">
-                                                            <i class="fa fa-calendar m-r-6"></i>
-                                                            Dec 18, 2017
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-lg-4 p-b-30">
-                                            <!-- item event -->
-                                            <div class="item-event">
-                                                <a href="blog-detail.html" class="wrap-pic-w how-overlay2">
-                                                    <img src="../images/blog-26.jpg" alt="IMG-BLOG">
-                                                </a>
-
-                                                <div class="p-t-20">
-                                                    <h6 class="p-b-12">
-                                                        <a href="blog-detail.html" class="m2-txt9 hov-cl1 trans-04">
-                                                            Through shrinking pain.
-                                                        </a>
-                                                    </h6>
-
-                                                    <div class="flex-sb-m flex-w">
-                                                        <span class="s1-txt14 m-r-20">
-                                                            <i class="fa fa-user-circle-o m-r-6"></i>
-                                                            by author
-                                                        </span>
-
-                                                        <span class="s1-txt2">
-                                                            <i class="fa fa-calendar m-r-6"></i>
-                                                            Dec 19, 2017
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                             
                             <!-- Comment -->
-                            <div class="p-t-50">
+                            <div id="comments" class="p-t-50">
                                 <h5 class="m2-txt8 p-b-10">
                                     Comments
                                 </h5>
-                                
+                                <h3 id="comments-title"></h3>
                                 <!-- item comment -->
-                                <div class="p-t-35">
-                                    <!-- comment-lv1 -->
-                                    <div class="flex-w">
-                                        <div class="how-avatar1 m-r-30 m-t-3">
-                                            <img src="../images/avatar-05.jpg" alt="AVATAR">
-                                        </div>
-
-                                        <div class="wsize19 w-full-sm respon6">
-                                            <div class="flex-w flex-sb-m p-b-10">
-                                                <span class="m1-txt8 p-r-20">
-                                                    Douglas Green
-                                                </span>
-
-                                                <span class="s1-txt3">
-                                                    2 Hour ago
-                                                </span>
-                                            </div>
-
-                                            <p class="s1-txt3 p-b-17">
-                                                There are many variations passages Lorem Ipsum available,ut the majority surealration some fm, injected humour or randomised to passage embarrassing hidden in the middle of facilis est e text voluptas assumenda est, omnis dolor repellendus. 
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- item comment -->
-                                <div class="p-t-35">
-                                    <!-- comment-lv1 -->
-                                    <div class="flex-w">
-                                        <div class="how-avatar1 m-r-30 m-t-3">
-                                            <img src="../images/avatar-07.jpg" alt="AVATAR">
-                                        </div>
-
-                                        <div class="wsize19 w-full-sm respon6">
-                                            <div class="flex-w flex-sb-m p-b-10">
-                                                <span class="m1-txt8 p-r-20">
-                                                    Jacob Schmidt
-                                                </span>
-
-                                                <span class="s1-txt3">
-                                                    1 Hour ago
-                                                </span>
-                                            </div>
-
-                                            <p class="s1-txt3 p-b-17">
-                                                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et necessitatibus saepe eveniet.
-                                            </p>
-                                        </div>
-                                    </div>
+                                <div class="p-t-35" id="display-comment">
                                 </div>
                             </div>
 
@@ -319,39 +129,40 @@
                                 </h5>
 
                                 {{ Form::open(['method' => 'POST', 'id' => 'comment_form', 'route' => 'comment.add']) }}
-                                        <div class="form-group">
+                                <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-4 p-b-30">
                                             <div class="size1 bor9">
-                                                <input class="size-full s1-txt3 placeholder3 p-l-20 p-r-20" type="text" name="name" placeholder="Your Name">
+                                                {{ Form::text('name', null, ['id' => 'name', 'class' => 'size-full s1-txt3 placeholder3 p-l-20 p-r-20', 'placeholder' => 'Your Name', 'autocomplete' => 'off', 'onfocus' => 'this.value=\'\'']) }}
                                             </div>
                                         </div>
 
                                         <div class="col-lg-4 p-b-30">
                                             <div class="size1 bor9">
-                                                <input class="size-full s1-txt3 placeholder3 p-l-20 p-r-20" type="text" name="email" placeholder="Your Email">
+                                                {{ Form::text('email', null, ['id' => 'email', 'class' => 'size-full s1-txt3 placeholder3 p-l-20 p-r-20', 'placeholder' => 'Your Email', 'autocomplete' => 'off', 'onfocus' => 'this.value=\'\'']) }}
                                             </div>
                                         </div>
 
                                         <div class="col-lg-4 p-b-30">
                                             <div class="size1 bor9">
-                                                <input class="size-full s1-txt3 placeholder3 p-l-20 p-r-20" type="text" name="phone" placeholder="Your Phone">
+                                                {{ Form::text('phone', null, ['id' => 'phone', 'class' => 'size-full s1-txt3 placeholder3 p-l-20 p-r-20', 'placeholder' => 'Your Phone', 'autocomplete' => 'off', 'onfocus' => 'this.value=\'\'']) }}
                                             </div>
                                         </div>
 
                                         <div class="col-12 p-b-30">
                                             <div class="w-full bor9">
-                                                <textarea class="size12 s1-txt3 placeholder3 p-l-20 p-r-20 p-t-16 p-b-10" name="msg" placeholder="Comments"></textarea>
+                                                {{ Form::textarea('content', null, ['id' => 'content', 'class' => 'size12 s1-txt3 placeholder3 p-l-20 p-r-20 p-t-16 p-b-10', 'placeholder' => 'Comments', 'autocomplete' => 'off', 'onfocus' => 'this.value=\'\'']) }}
                                             </div>
                                         </div>
+                                        {{ Form::hidden('post_id', $product->id, ['id' => 'post_id']) }}
+                                        {{ Form::hidden('post_type', 'App\Product', ['id' => 'post_type']) }}
 
                                         <div class="col-12 p-t-10">
-                                            <button class="flex-c-m s1-txt1 size6 bg1 how-btn1 trans-04">
-                                                Submit
-                                            </button>
+                                            {{ Form::submit( __('Submit'), ['name' => 'submit', 'id' => 'submit', 'class' => 'flex-c-m s1-txt1 size6 bg1 how-btn1 trans-04']) }}
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                {{ Form::close() }}
                             </div>
                         </div>
                     </div>
@@ -412,4 +223,80 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('[name="_token"]').attr('content')
+        }
+    });
+    $(document).ready(function() {
+        $('#comment_form').on('submit', function(event) {
+            event.preventDefault();
+            var form_data = $(this).serialize();
+            $.ajax({
+                url: "{{ url('comment/store') }}",
+                method: 'POST',
+                data: form_data,
+                dataType: 'JSON',
+                success: function(data)
+                {
+                    load_comment();
+                    $('#comment_form')[0].reset();
+                }
+            })
+        });
+        load_comment();
+        function load_comment()
+        {
+            var i;
+            var html = '';
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "{{ url('comment/fetch') }}",
+                data:
+                    {
+                        post_id: $('#post_id').val(),
+                        post_type: $('#post_type').val(),
+
+                    },
+                method: 'POST',
+                dataType: 'JSON',
+                success: function(data)
+                {
+                    //0 = email
+                    //1 = created_at
+                    //2 = content
+                    //3 = comment_id
+                    console.log(data);
+                    $('#comments-title').html('<span>'+ data.length + '</span> Comments');
+                    for (i = 0; i < data.length; i++) {
+                        html += '<div class="flex-w">' +
+                            '<div class="how-avatar1 m-r-30 m-t-3">' +
+                            '<img src="../assets/images/avatars/default-avatar.png" alt="AVATAR">' +
+                            '</div>' +
+                            '<div class="wsize19 w-full-sm respon6">' +
+                            '<div class="flex-w flex-sb-m p-b-10">' +
+                            '<span class="m1-txt8 p-r-20">' + data[i][0] + '</span>' +
+                            '<span class="s1-txt3">' + data[i][1] + '</span>' + 
+                            '</div>' +
+                            '<p class="s1-txt3 p-b-17">' + data[i][2] + '</p>' +
+                            '<a id="display-reply-' + data[i][3] + '"class="flex-w s1-txt3 hov-cl1 trans-04 icon-reply">' +
+                            '<i class="fa fa-mail-forward fs-18 cl1 m-t-3 m-r-10"></i>' +
+                            'Reply</a>' +
+                            '</div>' +
+                            '</div>';
+                    }
+                    $('#display-comment').html(html);
+                }
+            })
+        }
+    });
+</script>
 @endsection
