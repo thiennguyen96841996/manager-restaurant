@@ -39,7 +39,7 @@
                                                 {{ Form::label(__('timestart'), null, ['class' => 'control-label']) }}
                                                 <div class="icon-input">
                                                     <i class="mdi mdi-clock"></i>
-                                                    {{ form::text('date_start', null, ['class' => 'form-control', 'id' => 'datetimepicker_start_time']) }}
+                                                    {{ form::text('date_start', null, ['class' => 'form-control', 'id' => 'datetimepicker_start_time', 'autocomplete' => 'off']) }}
                                                 </div>
                                                 @if ($errors->has('date_start'))
                                                 <div class="alert alert-danger">
@@ -55,7 +55,7 @@
                                                 {{ Form::label('__time_end', null, ['class' => 'control-label']) }}
                                                 <div class="icon-input">
                                                     <i class="mdi mdi-clock"></i>
-                                                    {{ form::text('date_end', null, ['class' => 'form-control', 'id' => 'datetimepicker_end_time']) }}
+                                                    {{ form::text('date_end', null, ['class' => 'form-control', 'id' => 'datetimepicker_end_time', 'autocomplete' => 'off']) }}
                                                 </div>
                                                 @if ($errors->has('date_end'))
                                                 <div class="alert alert-danger">

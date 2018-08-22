@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-sm-6 col-lg-3">
                         <div class="wrap-pic-max-h wrap-pic-max-w flex-m hsize1">
-                            <a href="index.html"><img src="images/icons/logoo1.jpg" alt="LOGO"></a>
+                            <a href="index.html"><img src="{{ asset('images/icons/logoo1.jpg') }}" alt="LOGO"></a>
                         </div>
 
                         <p class="s1-txt3">
@@ -142,33 +142,33 @@
 
                         <div class="flex-sb flex-w">
                             <div class="wsize10">
-                                <a class="dis-block bg-img1 how-overlay2 size10 m-b-20" href="images/gallery-09.jpg" data-lightbox="gallery-footer"
-                                style="background-image: url('images/gallery-09.jpg');"></a>
+                                <a class="dis-block bg-img1 how-overlay2 size10 m-b-20" href="{{ asset('images/gallery-09.jpg') }}" data-lightbox="gallery-footer"
+                                style="background-image: url('../images/gallery-09.jpg');"></a>
                             </div>
 
                             <div class="wsize10">
                                 <a class="dis-block bg-img1 how-overlay2 size10 m-b-20" href="images/gallery-10.jpg" data-lightbox="gallery-footer"
-                                style="background-image: url('images/gallery-10.jpg');"></a>
+                                style="background-image: url('../images/gallery-10.jpg');"></a>
                             </div>
 
                             <div class="wsize10">
                                 <a class="dis-block bg-img1 how-overlay2 size10 m-b-20" href="images/gallery-11.jpg" data-lightbox="gallery-footer"
-                                style="background-image: url('images/gallery-11.jpg');"></a>
+                                style="background-image: url('../images/gallery-11.jpg');"></a>
                             </div>
 
                             <div class="wsize10">
                                 <a class="dis-block bg-img1 how-overlay2 size10 m-b-20" href="images/gallery-12.jpg" data-lightbox="gallery-footer"
-                                style="background-image: url('images/gallery-12.jpg');"></a>
+                                style="background-image: url('../images/gallery-12.jpg');"></a>
                             </div>
 
                             <div class="wsize10">
                                 <a class="dis-block bg-img1 how-overlay2 size10 m-b-20" href="images/gallery-13.jpg" data-lightbox="gallery-footer"
-                                style="background-image: url('images/gallery-13.jpg');"></a>
+                                style="background-image: url('../images/gallery-13.jpg');"></a>
                             </div>
 
                             <div class="wsize10">
                                 <a class="dis-block bg-img1 how-overlay2 size10 m-b-20" href="images/gallery-14.jpg" data-lightbox="gallery-footer"
-                                style="background-image: url('images/gallery-14.jpg');"></a>
+                                style="background-image: url('../images/gallery-14.jpg');"></a>
                             </div>
                         </div>                      
                     </div>

@@ -6,8 +6,9 @@
     <title>@yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 <!--===============================================================================================-->  
-    <link rel="icon" type="image/jpg" href="../images/icons/logoo1.jpg"/>
+    <link rel="icon" type="image/jpg" href="{{ asset('images/icons/logoo1.jpg') }}"/>
 <!--===============================================================================================-->
     {{ Html::style('vendor/bootstrap/css/bootstrap.min.css') }}
 <!--===============================================================================================-->
@@ -96,6 +97,7 @@
     {{ Html::script('vendor/lightbox2/js/lightbox.min.js') }}
 <!--===============================================================================================-->
     {{ Html::script('js/main.js') }}
+    @yield('script')
 
 </body>
 

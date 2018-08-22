@@ -29,4 +29,8 @@ class Product extends Model
 
         return $image;
     }
+
+    public function comments() {
+        return $this->morphMany('App\Comment', 'post');
+    }
 }
