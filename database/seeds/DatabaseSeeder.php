@@ -29,15 +29,7 @@ class UsersTableSeeder extends Seeder
                 'address' => 'Hưng Yên, Việt Nam',
                 'avatar' => 'default-avatar.png',
                 'role' => 'employee',
-            ], [
-                'name' => 'chin chin',
-                'email' => 'tinhhang22@gmail.com',
-                'password' => bcrypt('123456'),
-                'phone' => '0123456788',
-                'address' => 'Hà Nội, Việt Nam',
-                'avatar' => 'default-avatar.png',
-                'role' => 'manager',
-            ], [
+            ],[
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('123456'),

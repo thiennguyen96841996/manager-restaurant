@@ -16,7 +16,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li class="active">
-                        <a href="{{ url('/manager/users') }}">{{ __('all_user') }}</a>
+                        <a href="{{ route('users.index') }}">{{ __('all_user') }}</a>
                     </li>
                 </ul>
                 <ul class="dropdown-menu">

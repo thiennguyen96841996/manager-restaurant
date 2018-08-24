@@ -20,3 +20,4 @@ mix.copyDirectory('resources/assets/demo-bower', 'public/assets/demo-bower');
 mix.copyDirectory('resources/assets/ckeditor', 'public/assets/ckeditor');
 mix.copyDirectory('resources/assets/remarkable-bootstrap-notify', 'public/assets/remarkable-bootstrap-notify');
 mix.copyDirectory('resources/assets/datetimepicker', 'public/assets/datetimepicker');
+mix.copyDirectory('resources/assets/pusher-js', 'public/assets/pusher-js');
